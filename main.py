@@ -81,14 +81,12 @@ if audio_file:
                 user_query = transcript.text
                 few_shot_prompts = [{"role": "user", "content": prompt["text"]} for prompt in st.session_state["prompts"]]
                 instructions = """You are an expert American physician.
-                Generate a separate SOAP note from the following transcript.
-                The SOAP note should be concise and utilize bullet point format.
-                Include ICD-10 and CPT codes in parentheses next to the diagnosis and services.
-                Generate a detailed Subjective section, with all diagnoses separated.
-                Include plans for each assessment.
+                Your job is to create the patient encounter based on patient doctor conversation.
+                The format of the encounter should be same as in previous mentioned examples.
+                Utilize bullet point format.
                 Include all relevant information discussed in the transcript.
                 Use double asterisks for all the headings.
-                Write Subjective, Objective, Assessment, and Plan on separate lines using the newline character (/n)."""
+                Write all the headings that is mentioned in the mentioned examples on separate lines using the newline character (/n)."""
                 completion = client.chat.completions.create(
                     model="gpt-4o-mini",
                     messages=[{"role": "system", "content": instructions},
