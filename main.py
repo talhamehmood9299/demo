@@ -83,7 +83,6 @@ if audio_file:
                 instructions = """You are an expert American physician.
                 Your job is to create the patient encounter based on patient doctor conversation.
                 The format of the encounter should be same as in previous mentioned examples.
-                Utilize bullet point format.
                 Include all relevant information discussed in the transcript.
                 Use double asterisks for all the headings.
                 Write all the headings that is mentioned in the mentioned examples on separate lines using the newline character (/n)."""
