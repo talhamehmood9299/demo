@@ -83,11 +83,12 @@ if audio_file:
                 instructions = """You are an expert American physician.
                 Your job is to create the patient encounter based on patient doctor conversation.
                 The format of the encounter should be same as in previous mentioned examples.
+                Don't add anything from the previous examples in the final response.
                 Include all relevant information discussed in the transcript.
                 Use double asterisks for all the headings.
                 Write all the headings that is mentioned in the mentioned examples on separate lines using the newline character (/n)."""
                 completion = client.chat.completions.create(
-                    model="gpt-4o-mini",
+                    model="gpt-4o",
                     messages=[{"role": "system", "content": instructions},
                               *few_shot_prompts,
                               {"role": "user", "content": user_query}]
