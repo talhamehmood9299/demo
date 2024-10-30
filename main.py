@@ -79,7 +79,7 @@ if audio_file:
                 st.text_area("Transcription", transcript.text, label_visibility="collapsed")
 
                 user_query = transcript.text
-                few_shot_prompts = [{"role": "user", "content": prompt["text"]} for prompt in st.session_state["prompts"]]
+                few_shot_prompts = [{"role": "assistant", "content": prompt["text"]} for prompt in st.session_state["prompts"]]
                 instructions = """You are an expert American physician.
                 Your job is to create the patient encounter based on patient doctor conversation.
                 The format of the encounter should be same as in previous mentioned examples.
